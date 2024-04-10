@@ -11,4 +11,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        host: 'livewire.local',
+        port: 5173,
+    }
 });
