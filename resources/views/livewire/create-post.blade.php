@@ -1,5 +1,3 @@
 <div>
-
-    <h1>Hola dese el componente</h1>
-
+    <h1>{{ $user }}</h1>
 </div>
