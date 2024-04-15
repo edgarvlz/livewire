@@ -7,10 +7,19 @@ use Livewire\Component;
 
 class CreatePost extends Component
 {
-    public $title, $user;
+    public $title;
+    public $name, $email;
 
-    public function mount($user){
-        $this->user = User::find(1);
+    public function mount(User $user){
+        /* $this->name = $user->name;
+        $this->email = $user->email; */
+        $this->fill(
+            $user->only(['name', 'email'])
+        );
+    }
+    public function save()
+    {
+        // dd($this->name);
     }
 
     public function render()

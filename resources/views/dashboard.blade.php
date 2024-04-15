@@ -10,12 +10,14 @@
             {{-- <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <x-welcome />
             </div> --}}
-            @livewire('create-post', [
+            {{-- @livewire('create-post', [
                 'title' => "Hola Mundo",
                 "user" => 1
-            ])
+            ]) --}}
 
-            <p> contenido de prueba fuera del componente</p>
+            @livewire('paises')
+
+            {{-- <p> contenido de prueba fuera del componente</p> --}}
         </div>
     </div>
 </x-app-layout>
