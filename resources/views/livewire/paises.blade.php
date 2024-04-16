@@ -34,4 +34,6 @@
     @endif
 
     {{ $count }}
+    <br>
+    {{ $active }}
 </div>
