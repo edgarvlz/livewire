@@ -1,5 +1,6 @@
 <div>
-    <div class="bg-white shadow rounded-lg p-6">
+
+    <div class="bg-white shadow rounded-lg p-6 mb-8">
         <form wire:submit='save'>
             <div class="mb-4">
                 <x-label>
@@ -51,5 +52,17 @@
                 </x-button>
             </div>
         </form>
+    </div>
+
+    <div class="bg-white shadow rounded-lg p-6 ">
+
+        <ul class="list-disc list-inside">
+            @foreach ($posts as $post)
+                <li>
+                    {{$post->title}}
+                </li>
+            @endforeach
+        </ul>
+
     </div>
 </div>
