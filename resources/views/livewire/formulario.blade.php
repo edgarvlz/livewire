@@ -83,56 +83,52 @@
         </ul>
     </div>
 
-    <form wire:submit='update'>
+     {{-- Formulario de edicion --}}
+     <form wire:submit='update'>
         <x-dialog-modal wire:model='open'>
-
             <x-slot name="title">
-                Actualizar post
+                Actualizar Post
             </x-slot>
 
             <x-slot name="content">
                 <div class="mb-4">
-                    <x-label>
-                        Nombre
-                    </x-label>
-                    <x-input class="w-full" wire:model='postEdit.title' />
+                    <x-label>Nombre</x-label>
+                    <x-input class="w-full" wire:model='postEdit.title'/>
+                    <x-input-error for="postEdit.title" />
                 </div>
 
                 <div class="mb-4">
-                    <x-label>
-                        Contenido
-                    </x-label>
-                    <x-textarea class="w-full" wire:model='postEdit.content' ></x-textarea>
+                    <x-label>Contenido</x-label>
+                    <x-textarea class="w-full" wire:model='postEdit.content'></x-textarea>
+                    <x-input-error for="postEdit.content" />
                 </div>
 
                 <div class="mb-4">
-                    <x-label>
-                        Categoria
-                    </x-label>
-
-                    <x-select class="w-full" wire:model='postEdit.category_id' >
-                        <option value="" selected disabled class="text-center"> -- Selecionar --</option>
+                    <x-label>Categoria</x-label>
+                    <x-select class="w-full" wire:model='postEdit.category_id'>
+                        <option value="" disabled>
+                            seleccione una categoria
+                        </option>
                         @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value='{{ $category->id }}'>{{ $category->name }}</option>
                         @endforeach
                     </x-select>
+                    <x-input-error for="postEdit.category_id" />
                 </div>
 
                 <div class="mb-4">
-                    <x-label>
-                        Etiquetas
-                    </x-label>
-
+                    <x-label>Etiquetas</x-label>
                     <ul>
                         @foreach ($tags as $tag)
                             <li>
-                                <label>
-                                    <x-checkbox wire:model='postEdit.tags' value="{{$tag->id}}"/>
-                                    {{$tag->name}}
-                                </label>
+                                <x-label>
+                                    <x-checkbox wire:model='postEdit.tags' value="{{ $tag->id }}" />
+                                    {{ $tag->name }}
+                                </x-label>
                             </li>
                         @endforeach
                     </ul>
+                    <x-input-error for="postEdit.tags" />
                 </div>
             </x-slot>
 
@@ -147,7 +143,6 @@
                     </x-button>
                 </div>
             </x-slot>
-
         </x-dialog-modal>
     </form>
 </div>
