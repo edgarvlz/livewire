@@ -31,6 +31,8 @@ class Formulario extends Component
     {
         $this->postCreate->save();
         $this->posts = Post::all();
+
+        $this->dispatch('post-created', 'Nuevo articulo creado.');
     }
 
     public function edit($postId)
@@ -43,6 +45,7 @@ class Formulario extends Component
     {
         $this->postEdit->update();
         $this->posts = Post::all();
+        $this->dispatch('post-created', 'Articulo actualizado.');
     }
 
     public function destroy($postId)
@@ -52,6 +55,8 @@ class Formulario extends Component
         $post->delete();
 
         $this->posts = Post::all();
+
+        $this->dispatch('post-created', 'Articulo eliminado.');
     }
 
     public function render()

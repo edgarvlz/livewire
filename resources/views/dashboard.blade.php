@@ -17,6 +17,10 @@
 
             @livewire('formulario')
 
+            <div class="mt-8">
+                @livewire('comments')
+            </div>
+
             {{-- <p> contenido de prueba fuera del componente</p> --}}
         </div>
     </div>
