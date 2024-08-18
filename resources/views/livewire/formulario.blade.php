@@ -85,7 +85,7 @@
 
      {{-- Formulario de edicion --}}
      <form wire:submit='update'>
-        <x-dialog-modal wire:model='open'>
+        <x-dialog-modal wire:model='postEdit.open'>
             <x-slot name="title">
                 Actualizar Post
             </x-slot>
