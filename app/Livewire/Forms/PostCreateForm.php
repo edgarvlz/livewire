@@ -9,7 +9,7 @@ use Livewire\Form;
 
 class PostCreateForm extends Form
 {
-    #[Rule('required ')]
+    #[Rule('required|min:3')]
     public $title;
 
     #[Rule('required ')]
@@ -24,8 +24,6 @@ class PostCreateForm extends Form
     public function save()
     {
         $this->validate();
-
-        // dd($this->only('title', 'content','category_id'));
 
         $post  = Post::create(
             $this->only('title', 'content','category_id')

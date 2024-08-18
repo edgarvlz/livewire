@@ -13,7 +13,7 @@ class PostEditForm extends Form
     public $postId = '';
     public $open = false;
 
-    #[Rule('required ')]
+    #[Rule('required|min:3')]
     public $title;
 
     #[Rule('required ')]
