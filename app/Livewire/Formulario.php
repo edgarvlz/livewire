@@ -18,13 +18,16 @@ class Formulario extends Component
 
     public $posts;
 
-
+    //ciclo de vida de un componente
     public function mount()
     {
         $this->categories = Category::all();
         $this->tags = Tag::all();
-
         $this->posts = Post::all();
+    }
+
+    public function updating($property, $value){
+        dd($value);
     }
 
     public function save()
