@@ -1,4 +1,13 @@
 <div>
+
+    @persist('player')
+        <audio src="{{asset('audios/audio.mp3')}}" controls>audio</audio>
+    @endpersist
+
+    <x-button wire:click='redirigir'>
+        Ir a prueba
+    </x-button>
+
     <h1 class="text-2xl font-semibold">
         Componente padre
     </h1>
@@ -25,5 +34,9 @@
         @livewire('contador', [], key('contador-6'))
     </div> --}}
 
-    {{-- <livewire:children wire:model="name"/> --}}
+    <livewire:children :name="$name"/>
+
+    @push('js')
+        
+    @endpush
 </div>
