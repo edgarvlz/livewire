@@ -38,6 +38,8 @@ class Formulario extends Component
         $this->dispatch('post-created', 'Nuevo articulo creado.');
     }
 
+    picture          >
+
     public function edit($postId)
     {
         $this->resetValidation();
