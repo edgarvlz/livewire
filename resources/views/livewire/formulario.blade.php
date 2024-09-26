@@ -1,6 +1,13 @@
 <div>
 
     <div class="bg-white shadow rounded-lg p-6 mb-8">
+
+        @if ($postCreate->image)
+
+            <img src="{{$postCreate->image->temporaryUrl()}}" alt="">
+            
+        @endif
+
         <form wire:submit='save'>
             <div class="mb-4">
                 <x-label>
@@ -34,6 +41,22 @@
 
                 <x-input-error for='postCreate.category_id'/>
             </div>
+
+            <div class="mb-4">
+                <x-label>
+                    Imagen
+                </x-label>
+
+                <input 
+                    type="file" 
+                    class="w-full" 
+                    wire:model='postCreate.image'
+                    wire.key="{{$postCreate->imageKey}}"
+                />
+
+                <x-input-error for='postCreate.category_id'/>
+            </div>
+
 
             <div class="mb-4">
                 <x-label>
