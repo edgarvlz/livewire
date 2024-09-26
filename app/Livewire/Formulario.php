@@ -8,7 +8,10 @@ use Livewire\Component;
 use App\Models\Category;
 use App\Livewire\Forms\PostCreateForm;
 use App\Livewire\Forms\PostEditForm;
+use Livewire\Attributes\Lazy;
+use Livewire\Livewire;
 
+#[Lazy]
 class Formulario extends Component
 {
     public $categories, $tags;
@@ -26,10 +29,6 @@ class Formulario extends Component
         $this->posts = Post::all();
     }
 
-    public function updating($property, $value){
-        dd($value);
-    }
-
     public function save()
     {
         $this->postCreate->save();
@@ -37,8 +36,6 @@ class Formulario extends Component
 
         $this->dispatch('post-created', 'Nuevo articulo creado.');
     }
-
-    picture          >
 
     public function edit($postId)
     {

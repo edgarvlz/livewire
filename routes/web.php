@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\CreatePost;
+use App\Livewire\Formulario;
 use Illuminate\Support\Facades\Route;
 
 /*
