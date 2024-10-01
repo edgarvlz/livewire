@@ -98,23 +98,18 @@
                 </x-button>
             </div>
         </form>
-
-        <div wire:loading.delay>
-            <div>
-                hola
-            </div>
-
-            <div>
-                mundo
-            </div>
-        </div>
-
-        {{-- <div wire:loading.remove wire:target="save">
-            Procesando...
-        </div> --}}
     </div>
 
     <div class="bg-white shadow rounded-lg p-6 ">
+
+        <div class="mb-4">
+            <x-input 
+                class="w-full" 
+                placeholder="Buscar..."
+                wire:model.live="search"
+            />
+        </div>
+
         <ul class="list-disc list-inside space-y-2">
             @foreach ($posts as $post)
                 <li class="flex justify-between" wire:key="post-{{$post->id}}">
@@ -132,6 +127,10 @@
                 </li>
             @endforeach
         </ul>
+
+        <div class="mt-4">
+            {{$posts->links()}}
+        </div>
     </div>
 
      {{-- Formulario de edicion --}}
