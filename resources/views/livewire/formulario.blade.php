@@ -47,12 +47,27 @@
                     Imagen
                 </x-label>
 
+                <div
+                    x-data="{ uploading: false, progress: 0 }"
+                    x-on:livewire-upload-start="uploading = true"
+                    x-on:livewire-upload-finish="uploading = false"
+                    x-on:livewire-upload-cancel="uploading = false"
+                    x-on:livewire-upload-error="uploading = false"
+                    x-on:livewire-upload-progress="progress = $event.detail.progress"
+                ></div>
+
                 <input 
                     type="file" 
-                    class="w-full" 
+                    {{-- class="w-full"  --}}
                     wire:model='postCreate.image'
                     wire.key="{{$postCreate->imageKey}}"
                 />
+
+                <!-- Progress Bar -->
+                <div x-show="uploading">
+                    <div x-text="progress"></div>
+                    <progress max="100" x-bind:value="progress"></progress>
+                </div>
 
                 <x-input-error for='postCreate.category_id'/>
             </div>
@@ -83,6 +98,20 @@
                 </x-button>
             </div>
         </form>
+
+        <div wire:loading.delay>
+            <div>
+                hola
+            </div>
+
+            <div>
+                mundo
+            </div>
+        </div>
+
+        {{-- <div wire:loading.remove wire:target="save">
+            Procesando...
+        </div> --}}
     </div>
 
     <div class="bg-white shadow rounded-lg p-6 ">
@@ -156,7 +185,7 @@
 
             <x-slot name="footer">
                 <div class="flex justify-end">
-                    <x-danger-button class="mr-2" wire:click="$set('open', false)">
+                    <x-danger-button class="mr-2" wire:click="$set('postEdit.open', false)">
                         Cancelar
                     </x-danger-button>
 
